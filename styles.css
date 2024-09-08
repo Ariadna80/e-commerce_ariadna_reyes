@@ -2,3 +2,19 @@
     margin: 0;
     padding: 0;
 }
+body{
+    font-style: italic;
+}
+.header{
+    background-image: url(./img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    height:500px;
+}
+.navbar{
+    font-size: 25px;
+}
+.nav-link{
+    color: white;
+    font-size: 22px;
+}
