@@ -18,3 +18,9 @@ body{
     color: white;
     font-size: 22px;
 }
+.contenedor-imagen{
+    height: 300px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
