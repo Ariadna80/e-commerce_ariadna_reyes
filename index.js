@@ -5,6 +5,7 @@ const data = [
     nombre: "Corona Gold",
     descripcion: "Tonos dorados y brillantes, ramas, esferas y detalles",
     precio: "$90.000",
+    categoría:"Coronas",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const data = [
     nombre: "Corona Navilove",
     descripcion: "En tono rojo navidad, esferas, flores y moño",
     precio: "$90.000",
+    categoría:"Coronas",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const data = [
     nombre: "Bolsa de galletas",
     descripcion: "Galletas de mantequilla con relleno de mermelada de fresa",
     precio: "$8.000",
+    categoría:"Detalles",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const data = [
     nombre: "Corona Frozen",
     descripcion: "Tonos plateados con detalles únicos",
     precio: "$90.000",
+    categoría:"Coronas",
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const data = [
     nombre: "Esfera personalizada",
     descripcion: "Personaliza con tu nombre tu propia esfera",
     precio: "$10.000",
+    categoría:"Decoraciones",
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const data = [
     nombre: "Velas aroma navideño",
     descripcion: "Con una mezcla de aromas de temporada: canela, pino, jengibre",
     precio: "$5.000",
+    categoría:"Detalles",
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const data = [
     nombre: "Centro de mesa",
     descripcion: "Elegante arreglo festivo para dar estilo a tu mesa",
     precio: "$23.000",
+    categoría:"Decoraciones",
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const data = [
     nombre: "Taza Noel",
     descripcion: "Ideal para regalar o disfrutar de bebidas calientes",
     precio: "$12.000",
+    categoría:"Detalles",
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const data = [
     nombre: "Funda para cojines",
     descripcion: "Fundas en tela polar con diseños festivos",
     precio: "$28.000",
+    categoría:"Decoraciones",
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const data = [
     nombre: "Pulsera Dijes",
     descripcion: "Pulsera con dijes inspirados en la navidad, perfecta para regalar",
     precio: "$32.000",
+    categoría:"Detalles",
   },
 ];
 
@@ -81,7 +91,7 @@ function cards (data){
           <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
           </div>
           <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
+          <h3 class="card-title">${producto.nombre}</h5>
           <p class="card-text">${producto.descripcion}</p>
           <p class="card-text">${producto.precio}</p>
           <a href="./producto.html?prod=${producto.id}" class="btn btn-primary">Ver más</a>
@@ -116,3 +126,17 @@ const filter = () =>{
 buttonSearch.addEventListener("click",filter);
 buttonReset.addEventListener("click",resetInput);
 
+function filterCategory(categoría){
+  if(categoría === "Todo"){
+    cards(data)
+  }else if(categoría === "Coronas"){
+    const coronas = data.filter(item => item.categoría === "Coronas")
+    cards(coronas)
+  }else if(categoría === "Decoraciones"){
+    const decoraciones = data.filter(item => item.categoría === "Decoraciones")
+    cards(decoraciones)
+  }else {
+    const detalles = data.filter(item => item.categoría === "Detalles")
+    cards(detalles)
+  }
+}
