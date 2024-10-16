@@ -74,20 +74,45 @@ const data = [
 const h1 = document.querySelector("h1");
 h1.innerText = "Productos";
 
-let cardsArray = data.map(
-  (producto) => `<div class="card" style="width: 18rem;">
-        <div class="contenedor-imagen">
-        <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-        </div>
-        <div class="card-body">
-        <h5 class="card-title">${producto.nombre}</h5>
-        <p class="card-text">${producto.descripcion}</p>
-        <p class="card-text">${producto.precio}</p>
-        <a href="./producto.html?prod=${producto.id}" class="btn btn-primary">Ver más</a>
-        </div>
-        </div>`
-);
+function cards (data){
+  let cardsArray = data.map(
+    (producto) => `<div class="card" style="width: 18rem;">
+          <div class="contenedor-imagen">
+          <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+          </div>
+          <div class="card-body">
+          <h5 class="card-title">${producto.nombre}</h5>
+          <p class="card-text">${producto.descripcion}</p>
+          <p class="card-text">${producto.precio}</p>
+          <a href="./producto.html?prod=${producto.id}" class="btn btn-primary">Ver más</a>
+          </div>
+          </div>`
+  );
+  document.querySelector("section").innerHTML = cardsArray.join("");
+}
+cards(data)
 
-document.querySelector("section").innerHTML = cardsArray.join("");
 
+const input = document.querySelector("#inputSearch");
+const buttonSearch = document.querySelector("#search");
+const buttonReset = document.querySelector("#reset");
+
+const resetInput = () => {
+  input.value = ""
+  cards(data)
+  };
+
+const filter = () =>{
+  const filterData = data.filter( (item) => item.nombre.toLowerCase() === input.value.toLowerCase());
+
+  if (filterData.length === 1){
+    cards(filterData)
+  } else{
+    document.querySelector("section").innerText = "No encontrado"
+  }
+
+}
+
+buttonSearch.addEventListener("click",filter);
+buttonReset.addEventListener("click",resetInput);
 
