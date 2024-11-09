@@ -13,7 +13,10 @@ for(let item of nav){
 document.querySelector("nav").innerHTML = menu.join("");
 
 document.querySelector(".sesion").innerHTML = `<span>${localStorage.getItem("email")
-  ? `<span class="item-sesion">${localStorage.getItem("email")}</span> | <span class="item-sesion" onclick="logout()">Cerrar sesión</span>`
+  ? `<span class="item-sesion">${localStorage.getItem("email")}</span> | 
+  <a href="./cart.html" class="item-sesion"><img height="25" src="../img/carrito.png"/>
+  <b id="quantity">${localStorage.getItem("quantity")}</b></a> | 
+  <span class="item-sesion" onclick="logout()">Cerrar sesión</span>`
   : `<a class="item-sesion" href="./login.html">Iniciar sesión</a>`
 }</span>`
 

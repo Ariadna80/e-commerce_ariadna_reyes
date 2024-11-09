@@ -12,7 +12,9 @@ form.elements.password.addEventListener("input",clearMessage);
 form.addEventListener("submit", (e) => {
     e.preventDefault()
     if(UserLogin.email === form.elements.email.value && UserLogin.password === form.elements.password.value ){
-        localStorage.setItem("email",form.elements.email.value)
+        localStorage.setItem("email", form.elements.email.value)
+        localStorage.setItem("cart", JSON.stringify([]))
+        localStorage.setItem("quantity", "0")
         window.location.href = "./index.html";
     }else{
         message.innerText = "Credenciales inválidas";
