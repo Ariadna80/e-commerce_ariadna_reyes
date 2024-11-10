@@ -2,9 +2,24 @@
     margin: 0;
     padding: 0;
 }
-  
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style:normal;
+}    
 body{
+    font-family: "Dancing Script";
+    background-color: #640F0D;
+}
+
+.lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
     font-style: italic;
+}
+p, input{
+    font-family: "Lato";
 }
 .header{
     background-image: url(./img/background.jpg);
@@ -12,25 +27,110 @@ body{
     background-size: cover;
     height:500px;
 }
-.navbar{
-    font-size: 25px;
-}
-.nav-link{
-    color: white;
-    font-size: 22px;
-}
 .contenedor-imagen{
     height: 300px;
     display: grid;
     place-items: center;
     overflow: hidden;
 }
+h1{
+    font-size: 65px;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+.btn{
+    background-color: #e2c15c;
+}
+
+/*Filtrados*/
 .category{
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 30px;
+    font-size: 28px;
+    justify-content: center;
+    color: white;
 }
 .filtrado{
     display: flex;
+}
+#search, #reset{
+   border-radius: 5px;
+   border: 1px solid gray;
+   width: 65px;
+   font-size: 20px;
+}
+
+/*Navbar*/
+.item-nav{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.item-sesion{
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    padding: 7px;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 30px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Iniciar sesión*/
+#login{
+    display: grid;
+    place-items: center;
+    height: 100dvh;
+    background-image: url(./img/fondologin.jpg);
+    background-position: center;
+    background-size: cover;
+    font-size: 18px;
+}
+#login form{
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid rgba(89, 27, 25, 1);
+    background: transparent;
+    backdrop-filter: blur(70px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+#login h3{
+    text-align: center;
+    padding: 10px;
+}
+#login button{
+    background-color: #e2c15c;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    margin-top: 10px;
+}
+#login p{
+    font-size: 14px;
+}
+
+/*Carrito*/
+#cart .card .me-4 {
+    width: 180px;
+    overflow: hidden;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#cart .card .me-4 img {
+    width: 100%;
 }
