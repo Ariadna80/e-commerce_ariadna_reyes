@@ -25,7 +25,7 @@ const htmlProducto = `
         <div class="card-body">
           <h5 class="card-title">${prodSelect.nombre}</h5>
           <p class="card-text">${prodSelect.descripcion}</p>
-          <p class="card-text">${prodSelect.precio}</p>
+          <p class="card-text">$ ${prodSelect.precio.toLocaleString("es-CO")}</p>
           <p><small class="text-body-secondary">Stock: ${prodSelect.stock}</small></p>
 
           ${localStorage.getItem("email") ? `<div class="input-group mb-3">

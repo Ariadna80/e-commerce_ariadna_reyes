@@ -12,7 +12,7 @@ function cards (data){
           <div class="card-body">
           <h3 class="card-title d-flex justify-content-center">${producto.nombre}</h5>
           <p class="card-text">${producto.descripcion}</p>
-          <p class="card-text">${producto.precio}</p>
+          <p class="card-text">$ ${producto.precio.toLocaleString("es-CO")}</p>
           <a href="./producto.html?prod=${producto.id}" class="btn">Ver más</a>
           </div>
           </div>`
