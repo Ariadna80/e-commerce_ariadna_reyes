@@ -60,6 +60,8 @@ function incrementarItem(){
 }
 
 function agregarItem(){
+
+  function add(){
   let cart = JSON.parse(localStorage.getItem("cart"))
 
   const idProduct = Number(window.location.search.split("=")[1]);
@@ -86,4 +88,32 @@ function agregarItem(){
   quantityTag.innerText = quantity
 
   counter.value = "1"
+
+  Toastify({
+    text: "Añadido al carrito",
+    duration: 2200,
+    close: true,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "#e2c15c",
+    },
+  }).showToast();
+
+  };
+
+  Swal.fire({
+    text: "Quieres agregar este producto al carrito?",
+    confirmButtonText: "SI",
+    cancelButtonText: "NO",
+    showCancelButton: true,
+    showCloseButton: true,
+    confirmButtonColor: "#2d572c",
+    cancelButtonColor: "#d33",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      add();
+    }
+  });
+
 }
