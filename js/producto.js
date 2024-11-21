@@ -1,5 +1,3 @@
-import {data} from './data.js'
-
 class Producto {
     constructor(titulo,detalle,precio,stock,imagen){
         this.titulo = titulo;
