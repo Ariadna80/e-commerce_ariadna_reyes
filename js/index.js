@@ -1,5 +1,3 @@
-import {data} from './data.js'
-
 const h1 = document.querySelector("h1");
 h1.innerText = "Productos";
 
@@ -19,7 +17,6 @@ function cards (data){
   );
   document.querySelector("section").innerHTML = cardsArray.join("");
 }
-cards(data)
 
 
 const input = document.querySelector("#inputSearch");
@@ -59,3 +56,10 @@ function filterCategory(categoría){
     cards(detalles)
   }
 }
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve()
+  }, 3000)
+})
+promise.then(() => cards(data))
