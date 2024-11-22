@@ -87,3 +87,29 @@ function eliminarProducto (id){
     quantityTag.innerText = quantity
 
 }
+function checkout(){
+    const recurso = {
+        user: localStorage.getItem("email"),
+        items: JSON.parse(localStorage.getItem("cart"))
+    }
+    
+    fetch("https://673f9b76a9bc276ec4b915c8.mockapi.io/orders",{
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(recurso),
+    })
+    .then (response => response.json())
+    .then(data => {
+        Swal.fire({
+            text: `Gracias ${data.user}. Hemos registrado tu orden #${data.id}`,
+            confirmButtonText:"OK",
+            confirmButtonColor:"#2d572c"
+        })
+        vaciarCarrito()
+    })
+    .catch(() =>
+        Swal.fire("Hubo un problema, intenta más tarde."),
+    )
+}
